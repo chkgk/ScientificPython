@@ -1,0 +1,11 @@
+# bugs to fix in enroll app
+
+"enroll/templates/layout.html" needs to be fixed to use the enroll namespace:
+--> <a href="{% url 'enroll:enroll' %}" class="ui green button">Enroll</a>
+
+
+
+# Further steps necessary to make it run:
+- include enroll/settings.py in main project settings.py 
+- add include for enroll/urls.py to main prokect urls.py, don't forget to add the namespace
+- provide valid email server credentials in enroll/settings.py

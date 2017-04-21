@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>Login</h1>
+
+{% include "message_well.html" %}
+
+<div class="ui form segment">
+    <form action="{% url 'enroll:request_login_token' %}" method="post">
+        {% csrf_token %}
+        <div class="one field">
+            <p>To log in, please provide the email address you used to register. I'll send you a link that allows you to log in.</p>
+            <label for="email">Email</label><br />
+            <input type="email" name="email" id="email" placeholder="Email" required>
+        </div>
+        <button class="ui primary button" type="submit" value="Login" />Send me a Login Link!</button>
+    </form>
+</div>
+{% endblock %}

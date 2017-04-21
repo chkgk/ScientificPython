@@ -1,0 +1,37 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}{{ section.title }}{% endblock %} | Scientific Python</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'enroll/css.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'enroll/semantic.min.css' %}">
+</head>
+<body>
+
+    <div class="ui aligned segment">
+        <div class="ui secondary menu">
+            <div class="header item">
+                <h1>Scientific Python</h1>
+            </div>
+            <div class="ui secondary menu right">
+                <div class="item ">
+                    <div class="ui button">Home</div>
+                </div>
+                <div class="item ">
+                    <a href="{% url 'enroll:enroll' %}" class="ui green button">Enroll</a>
+                </div>
+                <div class="item">
+                    <a href="{% url 'enroll:login_form' %}" class="ui blue button">Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ui container">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+<script src="{% static 'enroll/jquery-2.2.3.min.js' %}"></script>
+<script src="{% static 'enroll/semantic.min.js' %}"></script>
+{% block script %}{% endblock %}
+</html>

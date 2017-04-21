@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>Enroll</h1>
+
+{% include "message_well.html" %}
+
+<div class="ui form segment">
+    <form action="{% url 'enroll:new_participant' %}" method="post">
+        {% csrf_token %}
+
+        <div class="two fields">
+            <div class="field">
+                <label for="first_name">First Name</label><br />
+                <input type="text" name="first_name" id="first_name" placeholder="First Name" required>
+            </div>
+            <div class="field">
+                <label for="last_name">Last Name</label><br />
+                <input type="text" name="last_name" id="last_name" placeholder="Last Name" required>
+            </div>
+        </div>
+
+        <div class="one field">
+            <label for="email">Email</label><br />
+            <input type="email" name="email" id="email" placeholder="Email" required>
+        </div>
+
+        <div class="inline field">
+            <div class="ui checkbox">
+                <input type="checkbox" name="others_can_see_me" class="hidden">
+                <label>Yes, others may see my name on the list.</label>
+            </div>
+        </div>
+
+        <button class="ui primary button" type="submit" value="Enroll" />Enroll</button>
+    </form>
+</div>
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript">
+    $('.ui.checkbox').checkbox();
+</script>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>Participants</h1>
+{% if not participants and not invisible %}
+    <div class="ui info message">Noone has signed up, yet!</div>
+{% endif %}
+
+{% if not participants and invisible %}
+    <div class="ui info message">Some have signed up, but wish to remain private!</div>
+{% endif %}
+
+
+<table class="ui celled table">
+    <thead>
+        <tr>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for participant in participants %}
+        <tr>
+            <td>
+                {{ participant.name }}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
